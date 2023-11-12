@@ -25,10 +25,32 @@ class WebContentSeeder extends Seeder
             "behance_link" => "https://www.instagram.com/devingodfreystudio/"
         ];
 
+        $homeContent = [
+            'main_title' => "A Multidisciplinary Creative <br/> Consulting Stop Agency <br/> dedicated to make your brand",
+            "main_title_moving_text" => array("matter", "meaningful", "well known", "soulful", "captivating"),
+            "work_example_1_thumbnail" => "work_example_1.png",
+            "work_example_1_title" => "Identity",
+            "work_example_1_description" => "Project of recognition",
+            "work_example_2_thumbnail" => "work_example_2.png",
+            "work_example_2_title" => "One",
+            "work_example_2_description" => "Arts x Politics",
+            "work_example_3_thumbnail" => "work_example_landscape_1.png",
+            "work_example_3_title" => "Cocomas Terrace",
+            "work_example_3_description" => "Food & Beverages",
+            "work_example_4_thumbnail" => "work_example_3.png",
+            "work_example_4_title" => "Identity",
+            "work_example_4_description" => "Project of recognition",
+        ];
+
         $data = [
             [
                 'section' => 'contact',
                 'content' => json_encode($contact),
+                'created_at' => Date::now()
+            ],
+            [
+                'section' => 'homeContent',
+                'content' => json_encode($homeContent),
                 'created_at' => Date::now()
             ]
         ];

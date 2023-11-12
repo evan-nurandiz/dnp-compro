@@ -33,6 +33,11 @@ class CrudHandler{
     {
         return DB::table($table)->where($primaryKey, $id)->update($data);
     }
+
+    public function getPaginateDate($table, $page)
+    {
+        return DB::table($table)->paginate($page);
+    }
 }
 
 ?>

@@ -14,27 +14,29 @@
         @vite('resources/css/app.css')
     </head>
     <div class="relative">
-        <nav class="bg-transparent top-0 fixed w-full">
-            <div data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" 
-            class="hidden py-6 max-w-screen-lg flex-wrap items-center justify-between mx-auto px-4 md:py-12 md:flex">
-                <img src="{{url('/icon/main-logo.png')}}" alt="" class="md:w-[86p×] md:h-[41px] cursor-pointer">
-                <img src="{{url('/icon/hamburger-logo.png')}}" alt="" class="md:h-[32p×] md:w-[26px] cursor-pointer">
+        <nav class="bg-transparent top-0 fixed w-full z-30">
+            <div class="hidden py-6 max-w-screen-lg flex-wrap items-center justify-between mx-auto px-4 md:py-12 md:flex">
+                <a href="/">
+                    <img src="{{url('/icon/main-logo.png')}}" alt="" class="md:w-[86p×] md:h-[41px] cursor-pointer">
+                </a>
+                <img data-drawer-target="sidebar-multi-level-sidebar" data-drawer-toggle="sidebar-multi-level-sidebar" aria-controls="sidebar-multi-level-sidebar" type="button" 
+                src="{{url('/icon/hamburger-logo.png')}}" alt="" class="md:h-[32p×] md:w-[26px] cursor-pointer" onclick="onClickSideBar()">
             </div>
             <div class="flex py-6 max-w-screen-lg flex-wrap items-center justify-between mx-auto px-4 md:py-12 md:hidden">
                 <img src="{{url('/icon/main-logo.png')}}" alt="" class="w-[66px] h-[31px] cursor-pointer">
-                <img src="{{url('/icon/hamburger-logo.png')}}" alt="" class="w-[31px] h-[21px] cursor-pointer">
+                <img data-drawer-target="sidebar-multi-level-sidebar" data-drawer-toggle="sidebar-multi-level-sidebar" aria-controls="sidebar-multi-level-sidebar" type="button"  src="{{url('/icon/hamburger-logo.png')}}" alt="" class="w-[31px] h-[21px] cursor-pointer">
             </div>
         </nav>
-        <aside id="default-sidebar" class="fixed hidden top-0 right-0 z-40 lg:w-[642px] h-[100%] transition-transform -translate-x-full lg:translate-x-0" aria-label="Sidebar">
+        <aside id="sidebar-multi-level-sidebar" class="fixed top-0 right-0 z-40 lg:w-[40%] 2xl:w-[642px] h-[100%] transition-transform translate-x-full sm:translate-x-full" aria-label="Sidebar">
             <div class="h-full pl-6 pr-12 py-4 overflow-y-auto bg-[#ffcf06] py-[66px]">
-                <svg class="w-[35px] h-[35px] text-black ml-auto cursor-pointer	" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                <svg onclick="onClickSideBar()" class="w-[35px] h-[35px] text-black ml-auto cursor-pointer	" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.6" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                 </svg>
                 <div class="grid grid-cols-2 mt-6">
                     <div class="col-span-1">
                         <div class="grid grid-cols-1 gap-6">
                             <div class="col-span-1">
-                                <a href="{{url('admin-cms-project-list')}}" class="text-[38px] font-bold">Work</a>
+                                <a href="/work" class="text-[38px] font-bold">Work</a>
                             </div>
                             <div class="col-span-1">
                                 <a href="" class="text-[38px] font-bold">Journal</a>
@@ -102,8 +104,8 @@
                     </p>
                     <p class="text-[#605E5E] text-[15px] font-extralight mb-6">@ {{ Carbon\Carbon::now()->format('Y')  }} by devin&partners.</p>
                 </div>
-                <div class="grid grid-cols-10 md:grid-cols-3 col-span-4">
-                    <div class="col-span-10 md:col-span-1">
+                <div class="grid grid-cols-10 lg:gap-12 lg:grid-cols-3 col-span-4">
+                    <div class="col-span-10 lg:col-span-1 xl:col-span-1">
                         <p class="text-[#5e5e5e] text-[15px] font-bold mb-4">Contact</p>
                         <p class="text-[#f1c719] text-[15px] font-bold mb-6">info@devinpartners.com</p>
                         <p class="text-[#f1c719] text-[15px] font-bold">+62817172626</p>
@@ -129,4 +131,20 @@
             </div>
         </footer>
     </div>
+
+    @yield('script')
+
+    <script>
+        const sidebar = document.getElementById("sidebar-multi-level-sidebar");
+
+        const onClickSideBar = () => {
+            if (sidebar.classList.contains("sm:translate-x-full")) {
+                sidebar.classList.remove("sm:translate-x-full")
+                sidebar.classList.add("sm:translate-x-0")
+            } else {
+                sidebar.classList.add("sm:translate-x-full")
+                sidebar.classList.remove("sm:translate-x-0")
+            }
+        }
+    </script>
 </html>
