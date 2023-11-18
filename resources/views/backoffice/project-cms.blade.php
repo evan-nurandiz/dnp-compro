@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="relative overflow-x-auto h-screen p-4">
-<div class="bg-gray-50 rounded-b-lg rounded-r-lg">
+    <div class="bg-gray-50 rounded-b-lg rounded-r-lg p-4">
         <div class="mb-[36px] p-4 flex justify-end items-center">
             <a href="{{route('admin-cms-project-create')}}">
                 <button class="rounded-lg py-[11px] px-[36px] bg-[#CF960A] gap-[20px] items-center">
@@ -66,6 +66,27 @@
             @endforeach
             </thead>
         </table>
+        <nav aria-label="Page navigation example" class="text-right mu-12">
+            <ul class="inline-flex -space-x-px text-sm">
+                <li class="{{$current_page > 1 ? '' : ' hidden' }}">
+                    <a href="/admin/project?page={{$current_page - 1}}" class="flex items-center justify-center px-3 h-8 ml-0
+                    leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 
+                    hover:text-gray-700  ">Previous</a>
+                </li>
+                @for($i = 1; $i <= $total_page; $i++)
+                    <li>
+                        <a href="/admin/project?page={{$i}}" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 
+                        {{ $i == $current_page ? 'bg-blue-50 hover:bg-blue-100 hover:text-blue-700' : 'hover:bg-gray-100 hover:text-gray-700 bg-white' }} border border-gray-300 
+                         ">{{$i}}</a>
+                    </li>
+                @endfor
+                <li class="{{$current_page == $total_page ? 'hidden' : ' ' }}">
+                <a href="/admin/project?page={{$current_page + 1}}" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg 
+                hover:bg-gray-100 hover:text-gray-700   
+                ">Next</a>
+                </li>
+            </ul>
+        </nav>
     </div>
 </div>
 @endsection

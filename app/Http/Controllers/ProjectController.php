@@ -28,9 +28,11 @@ class ProjectController extends Controller
     }
 
     public function Project() {
-        $projects = $this->crudHandler->get($this->mainTable);
+        $projects = $this->crudHandler->getPaginateData($this->mainTable,3 );
         return view('backoffice.project-cms', [
-            'projects' => $projects
+            'projects' => $projects,
+            'current_page' => $projects->currentPage(),
+            'total_page' => $projects->lastPage(),
         ]);
     }
 

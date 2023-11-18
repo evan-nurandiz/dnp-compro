@@ -1,5 +1,9 @@
 @extends('web.layout.header')
 
+@section('title')
+<title>DevinPartners | Creative Studio</title>
+@endsection('title')
+
 @section('content')
 <section>
     <div>
@@ -20,48 +24,50 @@
                 <br> dedicated to make your brand <span class="text-[#fccc16] font-black" id="word">Meaningful</span>
             </p>
             <div class="flex gap-2 items-center">
-                <p class="text-[#eec107] text-[22px]">let's get creative</p>
+                <a href="/work" class="text-[#eec107] text-[22px]">let's get creative</a>
                 <svg class="w-4 h-4 text-[#eec107]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                 </svg>
             </div>
         </div>
         <div class="mb-48 px-4 lg:px-0">
-            <a href="/work/slug" class="grid grid-cols-1 gap-8 md:grid-cols-2 justify-between md:gap-18 lg:gap-24 md:mb-24 cursor-pointer">
-                <div class="col-span-1">
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2 justify-between md:gap-18 lg:gap-24 md:mb-24 cursor-pointer">
+                <a href="/work" class="col-span-1">
                     <img src="{{url('/images/work_example_1.png')}}" alt="" class="mb-4">
                     <p class="text-[24px] text-[#fafafa] mb-1">Identity</p>
                     <p class="text-[16px] text-[#adadac] mb-4">Project of recognition</p>
-                </div>
-                <div class="col-span-1">
+                </a>
+                <a href="/work" class="col-span-1">
                     <img src="{{url('/images/work_example_2.png')}}" alt="" class="mb-4">
                     <p class="text-[24px] text-[#fafafa] mb-1">One</p>
                     <p class="text-[16px] text-[#adadac] mb-4">Arts x Politics</p>
-                </div>
-            </a>
-            <div>
+                </a>
+            </div>
+            <a href="/work" class="mb-8">
                 <img src="{{url('/images/work_example_landscape_1.png')}}" alt="" class="mb-4">
                 <p class="text-[24px] text-[#fafafa] mb-1">Cocomas Terrace</p>
                 <p class="text-[16px] text-[#adadac] mb-4">Food & Beverages</p>
-            </div>
+            </a>
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2 justify-between md:gap-24 mb-24">
-                <div class="col-span-1">
+                <a href="/work" class="col-span-1">
                     <img src="{{url('/images/work_example_3.png')}}" alt="" class="mb-4">
                     <p class="text-[24px] text-[#fafafa] mb-1">Identity</p>
                     <p class="text-[16px] text-[#adadac] mb-4">Project of recognition</p>
-                </div>
-                <div class="col-span-1 flex gap-2 items-center">
+                </a>
+                <a href="/work" class="col-span-1 flex gap-2 items-center">
                     <p class="text-[#eec107]">let's get creative</p>
                     <svg class="w-4 h-4 text-[#eec107]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                     </svg>
-                </div>
+                </a>
             </div>
         </div>
         <div class="px-4 md:px-0">
             <p class="text-[24px] font-semibold mb-8 text-[#fafafa] md:mb-48">Journal</p>
             <div class="mb-12">
-                <x-BlogCard/>
+                @foreach($blogs as $blog)
+                    <x-BlogCard :data=$blog/>
+                @endforeach
             </div>
         </div>
     </div>

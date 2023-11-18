@@ -19,7 +19,7 @@ class LoginMiddleware
         $session  = $request->session()->get('email');
 
         if(!empty($session)){
-            return redirect('/admin/cms-banner');
+            return redirect('/admin/project');
         }
 
         return $next($request);

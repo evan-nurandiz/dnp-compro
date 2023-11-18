@@ -34,9 +34,13 @@ class CrudHandler{
         return DB::table($table)->where($primaryKey, $id)->update($data);
     }
 
-    public function getPaginateDate($table, $page)
+    public function getPaginateData($table, $page)
     {
         return DB::table($table)->paginate($page);
+    }
+
+    public function getLatestData($table, $totalData) {
+        return DB::table($table)->latest()->limit($totalData)->get();
     }
 }
 

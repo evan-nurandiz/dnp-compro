@@ -1,14 +1,20 @@
 @extends('web.layout.header')
 
+@section('title')
+<title>{{$project->project_title}} | Devin&Partners</title>
+@endsection('title')
 
+@section('content')
 <section>
     <div class="py-24 md:py-32 max-w-screen-lg mx-auto">
-        <img src="{{url('/images/work_example_landscape_1.png')}}" alt="" class="w-full mb-[22px]">
+        <img src="{{asset('storage/images/'.$project->project_content_image)}}" alt="" class="w-full mb-[22px]">
         <div class="px-6">
-            <p class="text-[35px] text-[#ffffff] font-bold mb-4">Cocomas terrace</p>
-            <p class="text-[15px] text-[#b0b0b0] font-normal mb-8">Food & Beverage / 2020</p>
-            <p class="text-[20px] text-[#b0b0b0] font-extraLight">Cocomas Terrace is a sub-brand from Cocomas group. A grab and go coconut heavy health bar that focus on coconut product. They are now open in Senayan City and Plaza Indonesia. 
-                Our scope of work to re-brand their main visual identity. After intensive sessions of discussion with the owner, we came up with fun and playful Branding.</p>
+            <p class="text-[35px] text-[#ffffff] font-bold mb-4">{{$project->project_title}}</p>
+            <p class="text-[15px] text-[#b0b0b0] font-normal mb-8">{{$project->project_category}} / {{\Carbon\Carbon::parse($project->created_at)->format('Y')}}</p>
+            <p class="text-[20px] text-[#b0b0b0] font-extraLight">
+                {!!$project->project_body!!}
+            </p>
         </div>
     </div>
 </section>
+@endsection('content')

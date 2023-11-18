@@ -70,4 +70,23 @@ class CmsController extends Controller
             );
         }
     }
+
+    public function Home() {
+        try {
+            $content = $this->cmsHandlers->getContentBySection('homeContent');
+            $content['content'] = json_decode($content['content']);
+
+            $content['content']->main_title_moving_text = implode(',', $content['content']->main_title_moving_text);
+
+            return view('backoffice.home-cms', [
+                'content' => $content
+            ]);
+        } catch (Exception $e) {
+            return redirect()->back()->with(
+                'status','fail',
+            )->with(
+                'message','fail load data cause'.$e->getMessage()
+            );
+        }
+    }
 }

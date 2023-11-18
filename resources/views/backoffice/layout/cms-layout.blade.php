@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=1920">
 
-        <title>Aryana Admin</title>
+        <title>Devin And Partners</title>
         <link rel="icon" type="image/x-icon" href="{{url('/icon/main-icon.ico')}}">
 
         <!-- Fonts -->
@@ -35,7 +35,23 @@
             <ul class="space-y-2 font-medium">
                 <li class="text-center mb-8">
                     <a href="/">
-                        <img src="{{url('/icon/icon-2.svg')}}" alt="" class="bg-[#2B473C] mx-auto p-4 rounded-lg">
+                        <img src="{{url('/icon/main-logo.png')}}" alt="" class="bg-[#2B473C] mx-auto p-4 rounded-lg">
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('admin-cms-home')}}" class="flex items-center p-2 text-[#fff] rounded-lg  hover:bg-gray-100 hover:text-[#2B473C]  group">
+                    <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"/>
+                    </svg>
+                        <span class="ml-3">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('admin-cms-blog-list')}}" class="flex items-center p-2 text-[#fff] rounded-lg  hover:bg-gray-100 hover:text-[#2B473C]  group">
+                    <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"/>
+                    </svg>
+                        <span class="ml-3">Blog</span>
                     </a>
                 </li>
                 <li>
@@ -54,7 +70,7 @@
                         <span class="ml-3">Contact</span>
                     </a>
                 </li>
-                <a href="#" class="flex items-center p-2 text-[#fff] rounded-lg  hover:bg-gray-100  hover:text-[#2B473C]  group">
+                <a href="{{route('admin-cms-logout')}}" class="flex items-center p-2 text-[#fff] rounded-lg  hover:bg-gray-100  hover:text-[#2B473C]  group">
                     <svg class="flex-shrink-0 w-5 h-5  transition duration-75 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"/>
                     </svg>

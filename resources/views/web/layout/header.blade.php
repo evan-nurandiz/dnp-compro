@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>DevinPartners | Creative Studio</title>
+        @yield('title')
         <link rel="icon" type="image/x-icon" href="{{url('/icon/main-logo.ico')}}">
 
         <!-- Fonts -->
@@ -39,14 +39,14 @@
                                 <a href="/work" class="text-[38px] font-bold">Work</a>
                             </div>
                             <div class="col-span-1">
-                                <a href="" class="text-[38px] font-bold">Journal</a>
+                                <a href="/journal" class="text-[38px] font-bold">Journal</a>
                             </div>
-                            <div class="col-span-1">
+                            <!-- <div class="col-span-1">
                                 <a href="" class="text-[38px] font-bold">Family</a>
                             </div>
                             <div class="col-span-1">
                                 <a href="" class="text-[38px] font-bold">About Us</a>
-                            </div>
+                            </div> -->
                             <div class="col-span-1">
                                 <a href="" class="text-[38px] font-bold">Contact</a>
                             </div>
@@ -107,15 +107,35 @@
                 <div class="grid grid-cols-10 lg:gap-12 lg:grid-cols-3 col-span-4">
                     <div class="col-span-10 lg:col-span-1 xl:col-span-1">
                         <p class="text-[#5e5e5e] text-[15px] font-bold mb-4">Contact</p>
-                        <p class="text-[#f1c719] text-[15px] font-bold mb-6">info@devinpartners.com</p>
-                        <p class="text-[#f1c719] text-[15px] font-bold">+62817172626</p>
-                        <p class="text-[#f1c719] text-[15px] font-bold">+628817172626</p>
+                        <div class="mb-6">
+                            <a href="mailto:{{$contact->email}}" target="_blank" class="text-[#f1c719] text-[15px] font-bold mb-6">{{$contact->email}}</a>
+                        </div>
+                        <div>
+                            <a href="tel:{{$contact->phonenumber_1}}" target="_blank" class="text-[#f1c719] text-[15px] font-bold">{{$contact->phonenumber_1}}</a>
+                        </div>
+                        <div>
+                            @if($contact->phonenumber_1)
+                                <a href="tel:{{$contact->phonenumber_1}}" target="_blank" class="text-[#f1c719] text-[15px] font-bold">{{$contact->phonenumber_2}}</a>
+                            @endif
+                        </div>
                     </div>
                     <div class="hidden col-span-10 md:block md:col-span-1">
                         <p class="text-[#1A1A1A] text-[15px] font-bold mb-4">Contact</p>
-                        <p class="text-[#605e5e] text-[15px] font-bold mb-6">Instagram</p>
-                        <p class="text-[#605e5e] text-[15px] font-bold">Facebook</p>
-                        <p class="text-[#605e5e] text-[15px] font-bold">Behance</p>
+                        <div class="mb-6">
+                            @if(isset($contact->instagram_link))
+                                <a href="{{$contact->instagram_link}}" target="_blank" class="text-[#605e5e] text-[15px] font-bold mb-6">Instagram</a>
+                            @endif
+                        </div>
+                        <div>
+                            @if(isset($contact->facebook_link))
+                                <a href="{{$contact->facebook_link}}" target="_blank" class="text-[#605e5e] text-[15px] font-bold mb-6">Facebook</a>
+                            @endif
+                        </div>
+                        <div>
+                            @if(isset($contact->behance_link))
+                                <a href="{{$contact->behance_link}}" target="_blank" class="text-[#605e5e] text-[15px] font-bold mb-6">Behance</a>
+                            @endif
+                        </div>
                     </div>
                     <div class="hidden col-span-10 md:block col-span-10 md:col-span-1">
                         <p class="text-[#605e5e] text-[15px] font-bold mb-4">Social</p>
