@@ -24,10 +24,11 @@
             </div>
             <div class="flex py-6 max-w-screen-lg flex-wrap items-center justify-between mx-auto px-4 md:py-12 md:hidden">
                 <img src="{{url('/icon/main-logo.png')}}" alt="" class="w-[66px] h-[31px] cursor-pointer">
-                <img data-drawer-target="sidebar-multi-level-sidebar" data-drawer-toggle="sidebar-multi-level-sidebar" aria-controls="sidebar-multi-level-sidebar" type="button"  src="{{url('/icon/hamburger-logo.png')}}" alt="" class="w-[31px] h-[21px] cursor-pointer">
+                <img data-drawer-target="sidebar-multi-level-sidebar" data-drawer-toggle="sidebar-multi-level-sidebar" aria-controls="sidebar-multi-level-sidebar" onclick="onClickSideBar()"
+                 type="button"  src="{{url('/icon/hamburger-logo.png')}}" alt="" class="w-[31px] h-[21px] cursor-pointer">
             </div>
         </nav>
-        <aside id="sidebar-multi-level-sidebar" class="fixed top-0 right-0 z-40 lg:w-[40%] 2xl:w-[642px] h-[100%] transition-transform translate-x-full sm:translate-x-full" aria-label="Sidebar">
+        <aside id="sidebar-multi-level-sidebar" class="fixed top-0 right-0 z-40 w-[100%] lg:w-[40%] 2xl:w-[642px] h-[100%] transition-transform translate-x-full sm:translate-x-full" aria-label="Sidebar">
             <div class="h-full pl-6 pr-12 py-4 overflow-y-auto bg-[#ffcf06] py-[66px]">
                 <svg onclick="onClickSideBar()" class="w-[35px] h-[35px] text-black ml-auto cursor-pointer	" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.6" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
@@ -160,10 +161,14 @@
         const onClickSideBar = () => {
             if (sidebar.classList.contains("sm:translate-x-full")) {
                 sidebar.classList.remove("sm:translate-x-full")
+                sidebar.classList.remove("translate-x-full")
                 sidebar.classList.add("sm:translate-x-0")
+                sidebar.classList.add("translate-x-0")
             } else {
                 sidebar.classList.add("sm:translate-x-full")
+                sidebar.classList.add("translate-x-full")
                 sidebar.classList.remove("sm:translate-x-0")
+                sidebar.classList.remove("translate-x-0")
             }
         }
     </script>

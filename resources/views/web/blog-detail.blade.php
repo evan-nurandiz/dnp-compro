@@ -33,16 +33,16 @@
             <div class="mt-16">
                 <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
                 <div class="flex gap-8">
-                    <a href="">
+                    <a href="https://www.facebook.com/share.php?u={{Request::url()}}" target="_blank">
                         <img src="{{url('/icon/fb-blog-share-icon.svg')}}" alt="">
                     </a>
-                    <a href="">
+                    <a href="https://twitter.com/intent/tweet?url={{Request::url()}}" target="_blank">
                         <img src="{{url('/icon/twitter-blog-share-icon.svg')}}" alt="">
                     </a>
-                    <a href="">
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{Request::url()}}" target="_blank">
                         <img src="{{url('/icon/linkedin-blog-share-icon.svg')}}" alt="">
                     </a>
-                    <a href="">
+                    <a href="{{Request::url()}}">
                         <img src="{{url('/icon/blog-share-icon.svg')}}" alt="">
                     </a>
                 </div>

@@ -21,30 +21,30 @@ class PublicController extends Controller
     public function Home() {
         $contact = $this->cmsHandler->getContentBySection('contact');
         $blogs = $this->crudHandler->getLatestData('blogs', 3);
+        $homeContent = $this->cmsHandler->getContentBySection('homeContent');
         
         return view('web.welcome', [
             'contact' => json_decode($contact['content']),
-            'blogs' => $blogs
+            'blogs' => $blogs,
+            'homeContent' => json_decode($homeContent['content']),
         ]);
     }
 
     public function Work() {
         $projects = $this->crudHandler->getPaginateData('projects', 12);
         $contact = $this->cmsHandler->getContentBySection('contact');
-        $contact['content'] = json_decode($contact['content']);
         return view('web.work', [
             'projects' => $projects,
-            'contact' => $contact
+            'contact' => json_decode($contact['content']),
         ]);
     }
 
     public function WorkDetail($slug) {
         $project = $this->crudHandler->getByOneCondition('projects', 'project_slug', $slug); 
         $contact = $this->cmsHandler->getContentBySection('contact');
-        $contact['content'] = json_decode($contact['content']);
         return view('web.work-detail', [
             'project' => $project,
-            'contact' => $contact
+            'contact' => json_decode($contact['content']),
         ]);
     }
 
@@ -53,7 +53,7 @@ class PublicController extends Controller
         $contact = $this->cmsHandler->getContentBySection('contact');
         return view('web.blog', [
             'blogs' => $blogs,
-            'contact' => $contact
+            'contact' => json_decode($contact['content']),
         ]);
     }
 
@@ -62,7 +62,7 @@ class PublicController extends Controller
         $contact = $this->cmsHandler->getContentBySection('contact');
         return view('web.blog-detail', [
             'blog' => $blog,
-            'contact' => $contact
+            'contact' => json_decode($contact['content']),
         ]);
     }
 }
