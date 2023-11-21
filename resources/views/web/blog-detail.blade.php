@@ -7,9 +7,19 @@
 @section('content')
 <section>
 <div class="max-w-screen-lg mx-auto py-[160px]">
-    <div class="bg-white p-4 relative">
+    <div class="bg-white px-4 py-8 relative">
         <div class="flex justify-between mb-10">
             <p class="text-[14px] text-[#5f5e5e] text-extraLight">All Posts</p>
+            <div>
+                <img src="{{url('/icon/search-icon-blog.svg')}}" alt="" class="cursor-pointer" id="search-form-toggle" onclick="onShowSearchForm()">
+                <form method="get" class="w-full max-w-sm hidden" id="search-form" action="/journal">
+                    <div class="flex items-center border-b border-[#9f9e9e] py-2">
+                        <img src="{{url('/icon/search-icon-blog.svg')}}" alt="" class="cursor-pointer">
+                        <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Search" name="keyword">
+                        <img src="{{url('/icon/search-icon-close.svg')}}" alt=""  class="cursor-pointer" onclick="onShowSearchForm()">
+                    </div>
+                </form>
+            </div>
         </div>
         <div class="border-[1px] p-4 border-gray-100 md:px-24 md:py-16">
             <div class="flex justify-between mb-12 items-center relative">
@@ -182,6 +192,19 @@
             tabButton.classList.remove("hidden")
         } else {
             tabButton.classList.add("hidden")
+        }
+    }
+
+    const searchForm = document.getElementById("search-form")
+    const searchFromToggle = document.getElementById("search-form-toggle")
+
+    const onShowSearchForm = () => {
+        if (searchForm.classList.contains('hidden')) {
+            searchForm.classList.remove("hidden")
+            searchFromToggle.classList.add('hidden')
+        } else {
+            searchForm.classList.add("hidden")
+            searchFromToggle.classList.remove('hidden')
         }
     }
 </script>

@@ -34,9 +34,19 @@ class CrudHandler{
         return DB::table($table)->where($primaryKey, $id)->update($data);
     }
 
+    public function updateOneColumn($table, $primaryKey, $id, $column, $data)
+    {
+        return DB::table($table)->where($primaryKey, $id)->update([$column => $data]);
+    }
+
     public function getPaginateData($table, $page)
     {
-        return DB::table($table)->paginate($page);
+        return DB::table($table)->orderBy('created_at', 'desc')->paginate($page);
+    }
+
+    public function getPaginateDataWithSearch($table, $column, $value, $page)
+    {
+        return DB::table($table)->where($column, 'LIKE', '%'.$value.'%')->orderBy('created_at', 'desc')->paginate($page);
     }
 
     public function getLatestData($table, $totalData) {

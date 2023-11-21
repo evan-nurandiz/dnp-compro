@@ -23,7 +23,7 @@
             <hr class="h-px bg-gray-200 border-0 mb-4">
             <div class="flex">
                 <div class="flex gap-8">
-                    <p class="text-[10px] text-[#2F2E2E] font-light">14 views</p>
+                    <p class="text-[10px] text-[#2F2E2E] font-light">{{$blog->blog_view}} views</p>
                     <p class="text-[10px] text-[#2F2E2E] font-light">0 comments</p>
                 </div>
             </div>
