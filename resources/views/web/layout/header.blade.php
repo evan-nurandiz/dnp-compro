@@ -23,7 +23,9 @@
                 src="{{url('/icon/hamburger-logo.png')}}" alt="" class="md:h-[32p×] md:w-[26px] cursor-pointer" onclick="onClickSideBar()">
             </div>
             <div class="flex py-6 max-w-screen-lg flex-wrap items-center justify-between mx-auto px-4 md:py-12 md:hidden">
-                <img src="{{url('/icon/main-logo.png')}}" alt="" class="w-[66px] h-[31px] cursor-pointer">
+                <a href="/">
+                    <img src="{{url('/icon/main-logo.png')}}" alt="" class="w-[66px] h-[31px] cursor-pointer">
+                </a>
                 <img data-drawer-target="sidebar-multi-level-sidebar" data-drawer-toggle="sidebar-multi-level-sidebar" aria-controls="sidebar-multi-level-sidebar" onclick="onClickSideBar()"
                  type="button"  src="{{url('/icon/hamburger-logo.png')}}" alt="" class="w-[31px] h-[21px] cursor-pointer">
             </div>
