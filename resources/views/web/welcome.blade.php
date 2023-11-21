@@ -63,7 +63,7 @@
         </div>
         <div class="px-4 md:px-0">
             <p class="text-[24px] font-semibold mb-8 text-[#fafafa] md:mb-48">Journal</p>
-            <div class="mb-12">
+            <div class="mb-12 flex flex-col gap-6">
                 @foreach($blogs as $blog)
                     <x-BlogCard :data=$blog/>
                 @endforeach
