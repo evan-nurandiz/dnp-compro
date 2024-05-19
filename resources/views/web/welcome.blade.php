@@ -36,7 +36,7 @@
         </div>
     </div>
     <div class="mt-[32px] mb-[97px] relative">
-        <img src="{{url('/icon/hand-with-card.svg')}}" alt="" class="">
+        <img src="{{url('/icon/hand-with-card.svg')}}" alt="" class="w-full">
         <div class="px-[48px] top-[70px] absolute">
             <p class="text-[#FFCE27] text-[32px] mb-[33px] text-center lg:text-left">The story</p>
             <p class="text-[#FFFFFF] text-[14px] max-w-[495px]">
