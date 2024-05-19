@@ -20,7 +20,10 @@
                 <a href="/">
                     <img src="{{url('/icon/dnp-icon-v2.svg')}}" alt="" class="md:w-[86p×] md:h-[41px] cursor-pointer">
                 </a>
-                <img src="{{url('/icon/header-icon.svg')}}" alt="" class="cursor-pointer">
+                <button onclick="openHiddenBar()">
+                    <img src="{{url('/icon/header-icon.svg')}}" alt="" 
+                    class="cursor-pointer">
+                </button>
                 <div class="px-[12px] py-[10px] flex bg-white items-center gap-[10px] rounded-[32px]">
                     <div class="w-[8px] h-[8px] rounded-full bg-[#FFCE27]"></div>
                     <p>Let’s talk</p>
@@ -32,13 +35,16 @@
                 <a href="/">
                     <img src="{{url('/icon/dnp-icon-v2.svg')}}" alt="" class="w-[66px] h-[31px] cursor-pointer">
                 </a>
-                <img data-drawer-target="sidebar-multi-level-sidebar" data-drawer-toggle="sidebar-multi-level-sidebar" aria-controls="sidebar-multi-level-sidebar" onclick="onClickSideBar()"
+                <img onclick="openHiddenBar()"
                  type="button"  src="{{url('/icon/hamburger-logo.png')}}" alt="" class="w-[31px] h-[21px] cursor-pointer">
             </div>
         </nav>
-        <div class="h-screen w-full bg-[#72727240] bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-[25%] fixed top-0 z-50 hidden">
+        <div id="hidden-bar" class="h-screen w-full bg-[#72727240] 
+        bg-clip-padding backdrop-filter 
+        backdrop-blur-sm bg-opacity-[25%] 
+        fixed top-0 z-50 transition-transform -translate-y-full">
             <div class="columns-1 w-full text-center">
-                <img src="{{url('/icon/close.svg')}}" alt="" class="mx-auto my-[16px]">
+                <img src="{{url('/icon/close.svg')}}" alt="" class="mx-auto my-[16px]" onclick="openHiddenBar()">
                 <div class="text-[48px] text-[#FFCE27]  mb-[48px]">our work</div>
                 <div class="text-[48px] text-[#FFCE27]  mb-[48px]">about us</div>
                 <div class="text-[48px] text-[#FFCE27]  mb-[48px]">the teams</div>
@@ -100,4 +106,17 @@
     </div>
 
     @yield('script')
+    <script>
+        const openHiddenBar = () => {
+            console.log('hitt', document.getElementById("hidden-bar").classList.contains("hidden"))
+            if (document.getElementById("hidden-bar").classList.contains("-translate-y-full")) {
+                document.getElementById("hidden-bar").classList.remove("-translate-y-full")
+                document.getElementById("hidden-bar").classList.add("translate-y-0")
+            } else {
+                document.getElementById("hidden-bar").classList.add("-translate-y-full")
+                document.getElementById("hidden-bar").classList.remove("translate-y-0")
+
+            }
+        }
+    </script>
 </html>
