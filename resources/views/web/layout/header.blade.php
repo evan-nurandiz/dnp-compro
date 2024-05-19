@@ -10,57 +10,42 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+        @yield('head-script')
 
         @vite('resources/css/app.css')
     </head>
     <div class="relative">
         <nav class="bg-transparent top-0 fixed w-full z-30">
-            <div class="hidden py-6 max-w-screen-lg flex-wrap items-center justify-between mx-auto px-4 md:py-12 md:flex">
+            <div class="hidden py-6 px-[48px] flex-wrap items-center justify-between mx-auto px-4 md:pt-[21px] md:pb-[8px] md:flex">
                 <a href="/">
-                    <img src="{{url('/icon/main-logo.png')}}" alt="" class="md:w-[86p×] md:h-[41px] cursor-pointer">
+                    <img src="{{url('/icon/dnp-icon-v2.svg')}}" alt="" class="md:w-[86p×] md:h-[41px] cursor-pointer">
                 </a>
-                <img data-drawer-target="sidebar-multi-level-sidebar" data-drawer-toggle="sidebar-multi-level-sidebar" aria-controls="sidebar-multi-level-sidebar" type="button" 
-                src="{{url('/icon/hamburger-logo.png')}}" alt="" class="md:h-[32p×] md:w-[26px] cursor-pointer" onclick="onClickSideBar()">
+                <img src="{{url('/icon/header-icon.svg')}}" alt="" class="cursor-pointer">
+                <div class="px-[12px] py-[10px] flex bg-white items-center gap-[10px] rounded-[32px]">
+                    <div class="w-[8px] h-[8px] rounded-full bg-[#FFCE27]"></div>
+                    <p>Let’s talk</p>
+                </div>
+                <!-- <img data-drawer-target="sidebar-multi-level-sidebar" data-drawer-toggle="sidebar-multi-level-sidebar" aria-controls="sidebar-multi-level-sidebar" type="button" 
+                src="{{url('/icon/hamburger-logo.png')}}" alt="" class="md:h-[32p×] md:w-[26px] cursor-pointer" onclick="onClickSideBar()"> -->
             </div>
             <div class="flex py-6 max-w-screen-lg flex-wrap items-center justify-between mx-auto px-4 md:py-12 md:hidden">
                 <a href="/">
-                    <img src="{{url('/icon/main-logo.png')}}" alt="" class="w-[66px] h-[31px] cursor-pointer">
+                    <img src="{{url('/icon/dnp-icon-v2.svg')}}" alt="" class="w-[66px] h-[31px] cursor-pointer">
                 </a>
                 <img data-drawer-target="sidebar-multi-level-sidebar" data-drawer-toggle="sidebar-multi-level-sidebar" aria-controls="sidebar-multi-level-sidebar" onclick="onClickSideBar()"
                  type="button"  src="{{url('/icon/hamburger-logo.png')}}" alt="" class="w-[31px] h-[21px] cursor-pointer">
             </div>
         </nav>
-        <aside id="sidebar-multi-level-sidebar" class="fixed top-0 right-0 z-40 w-[100%] lg:w-[40%] 2xl:w-[642px] h-[100%] transition-transform translate-x-full sm:translate-x-full" aria-label="Sidebar">
-            <div class="h-full pl-6 pr-12 py-4 overflow-y-auto bg-[#ffcf06] py-[66px]">
-                <svg onclick="onClickSideBar()" class="w-[35px] h-[35px] text-black ml-auto cursor-pointer	" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.6" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                </svg>
-                <div class="grid grid-cols-2 mt-6">
-                    <div class="col-span-1">
-                        <div class="grid grid-cols-1 gap-6">
-                            <div class="col-span-1">
-                                <a href="/work" class="text-[38px] font-bold">Work</a>
-                            </div>
-                            <div class="col-span-1">
-                                <a href="/journal" class="text-[38px] font-bold">Journal</a>
-                            </div>
-                            <!-- <div class="col-span-1">
-                                <a href="" class="text-[38px] font-bold">Family</a>
-                            </div>
-                            <div class="col-span-1">
-                                <a href="" class="text-[38px] font-bold">About Us</a>
-                            </div> -->
-                            <div class="col-span-1">
-                                <a href="" class="text-[38px] font-bold">Contact</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-span-1">
-                        <!-- <img src="{{url('/images/pattern-side-bar.png')}}" alt="" class="h-full"> -->
-                    </div>
-                </div>
+        <div class="h-screen w-full bg-[#72727240] bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-[25%] fixed top-0 z-50 hidden">
+            <div class="columns-1 w-full text-center">
+                <img src="{{url('/icon/close.svg')}}" alt="" class="mx-auto my-[16px]">
+                <div class="text-[48px] text-[#FFCE27]  mb-[48px]">our work</div>
+                <div class="text-[48px] text-[#FFCE27]  mb-[48px]">about us</div>
+                <div class="text-[48px] text-[#FFCE27]  mb-[48px]">the teams</div>
+                <div class="text-[48px] text-[#FFCE27]  mb-[48px]">journal</div>
+                <div class="text-[48px] text-[#FFCE27]  mb-[48px]">let’s talk</div>
             </div>
-        </aside>
+        </div>
         <body class="antialiased bg-[#1A1A1A] min-h-screen">
             @if(session()->has('status'))
                 @if (session()->get('status') == 'success')
@@ -100,78 +85,19 @@
             @yield('content')
         </body>
         <footer>
-            <div class="grid grid-cols-10 px-4 md:px-12 md:mt-12">
-                <div class="col-span-5 hidden md:block md:mt-8 md:col-span-3">
-                    <p class="text-[#4b4b4a] text-[22px] font-semibold mb-24">
-                        Contact us, let's discuss <br> about how we can help <br> your business growth !
-                    </p>
-                    <p class="text-[#605E5E] text-[15px] font-extralight mb-6">@ {{ Carbon\Carbon::now()->format('Y')  }} by devin&partners.</p>
+            <div class="flex justify-between lg:mt-[48px] mb-[55px] px-[48px]">
+                <div class="col-span-1">
+                    <p class="text-[14px] text-white font-[300]">+62 21 1234567</p>
                 </div>
-                <div class="grid grid-cols-10 lg:gap-12 lg:grid-cols-3 col-span-4">
-                    <div class="col-span-10 lg:col-span-1 xl:col-span-1">
-                        <p class="text-[#5e5e5e] text-[15px] font-bold mb-4">Contact</p>
-                        <div class="mb-6">
-                            <a href="mailto:{{$contact->email}}" target="_blank" class="text-[#f1c719] text-[15px] font-bold mb-6">{{$contact->email}}</a>
-                        </div>
-                        <div>
-                            <a href="tel:{{$contact->phonenumber_1}}" target="_blank" class="text-[#f1c719] text-[15px] font-bold">{{$contact->phonenumber_1}}</a>
-                        </div>
-                        <div>
-                            @if($contact->phonenumber_1)
-                                <a href="tel:{{$contact->phonenumber_1}}" target="_blank" class="text-[#f1c719] text-[15px] font-bold">{{$contact->phonenumber_2}}</a>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="hidden col-span-10 md:block md:col-span-1">
-                        <p class="text-[#1A1A1A] text-[15px] font-bold mb-4">Contact</p>
-                        <div class="mb-6">
-                            @if(isset($contact->instagram_link))
-                                <a href="{{$contact->instagram_link}}" target="_blank" class="text-[#605e5e] text-[15px] font-bold mb-6">Instagram</a>
-                            @endif
-                        </div>
-                        <div>
-                            @if(isset($contact->facebook_link))
-                                <a href="{{$contact->facebook_link}}" target="_blank" class="text-[#605e5e] text-[15px] font-bold mb-6">Facebook</a>
-                            @endif
-                        </div>
-                        <div>
-                            @if(isset($contact->behance_link))
-                                <a href="{{$contact->behance_link}}" target="_blank" class="text-[#605e5e] text-[15px] font-bold mb-6">Behance</a>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="hidden col-span-10 md:block col-span-10 md:col-span-1">
-                        <p class="text-[#605e5e] text-[15px] font-bold mb-4">Social</p>
-                    </div>
+                <div class="col-span-1">
+                    <p class="text-[14px] text-white font-[300]">FACEBOOK        X        INSTAGRAM       LINKEDIN</p>
                 </div>
-                <div class="col-span-10 block mt-8 md:hidden">
-                    <p class="text-[#4b4b4a] text-[16px] md:text-[22px] font-semibold mb-12">
-                        Contact us, let's discuss about how we can help your business growth !
-                    </p>
-                    <p class="text-[#605E5E] text-[15px] font-extralight mb-6">@ {{ Carbon\Carbon::now()->format('Y')  }} by devin&partners.</p>
+                <div class="col-span-1">
+                    <p class="text-[14px] text-white font-[300]">+62 21 1234567</p>
                 </div>
-                <div class="col-span-5 md:col-span-3"></div>
             </div>
         </footer>
     </div>
 
     @yield('script')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        const sidebar = document.getElementById("sidebar-multi-level-sidebar");
-
-        const onClickSideBar = () => {
-            if (sidebar.classList.contains("sm:translate-x-full")) {
-                sidebar.classList.remove("sm:translate-x-full")
-                sidebar.classList.remove("translate-x-full")
-                sidebar.classList.add("sm:translate-x-0")
-                sidebar.classList.add("translate-x-0")
-            } else {
-                sidebar.classList.add("sm:translate-x-full")
-                sidebar.classList.add("translate-x-full")
-                sidebar.classList.remove("sm:translate-x-0")
-                sidebar.classList.remove("translate-x-0")
-            }
-        }
-    </script>
 </html>

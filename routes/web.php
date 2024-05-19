@@ -24,6 +24,8 @@ Route::get('/work', [PublicController::class, 'Work'])->name('work');
 Route::get('/work/{slug}', [PublicController::class, 'WorkDetail'])->name('work-detail');
 Route::get('/journal', [PublicController::class, 'Journal'])->name('journal');
 Route::get('/journal/{slug}', [PublicController::class, 'JournalDetail'])->name('journal-detail');
+Route::get('/about-us', [PublicController::class, 'AboutUs'])->name('about-us');
+Route::get('/teams', [PublicController::class, 'Teams'])->name('teams');
 Route::get('/cms-login', [AuthController::class, 'login'])->name('cms-login');
 
 Route::middleware(['authMiddleware'])->group(function(){

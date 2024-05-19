@@ -85,4 +85,12 @@ class PublicController extends Controller
             'contact' => json_decode($contact['content']),
         ]);
     }
+
+    public function AboutUs() {
+        return view('web.about-us');
+    }
+    
+    public function Teams() {
+        return view('web.teams');
+    }
 }
