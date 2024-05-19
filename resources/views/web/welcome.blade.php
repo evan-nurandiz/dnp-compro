@@ -7,6 +7,7 @@
 @section('head-script')
 <link rel="stylesheet" href="{{url('/css/style.css')}}"/>
 <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
 @endsection('head-script')
 
 @section('content')
