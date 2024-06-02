@@ -1,68 +1,90 @@
 @extends('web.layout.header')
 
 @section('title')
-<title>Journal | Devin&Partners</title>
+<title>Work | Devin&Partners</title>
 @endsection('title')
 
 @section('content')
 <section>
-<div class="max-w-screen-lg mx-auto py-[160px]">
-    <div class="bg-white px-4 py-8">
-        <div class="flex justify-between mb-10">
-            <p class="text-[14px] text-[#5f5e5e] text-extraLight">All Posts</p>
-            <div>
-                <img src="{{url('/icon/search-icon-blog.svg')}}" alt="" class="cursor-pointer" id="search-form-toggle" onclick="onShowSearchForm()">
-                <form method="get" class="w-full max-w-sm hidden" id="search-form" action="/journal">
-                    <div class="flex items-center border-b border-[#9f9e9e] py-2">
-                        <img src="{{url('/icon/search-icon-blog.svg')}}" alt="" class="cursor-pointer">
-                        <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Search" name="keyword">
-                        <img src="{{url('/icon/search-icon-close.svg')}}" alt=""  class="cursor-pointer" onclick="onShowSearchForm()">
+    <div>
+        <img src="{{url('images/work-background.png')}}" alt="">
+        <div class="pl-[24px] pr-[24px] md:pl-[48px] md:pr-[60px] -mt-[180px] md:-mt-[270px] lg:-mt-0 mb-[150px]">
+            <div class="md:flex md:justify-between tems-start lg:-mt-[650px] lg:mb-[110px] mb-[40px]">
+                <p class="text-[48px] text-[#FFCE27] font-[300] text-center md:text-left md:mr-[300px] lg:mr-[618px]">Journal</p>
+            </div>
+            <div class="flex w-full">
+                <div class="block lg:flex p-[22px] bg-gradient-to-r from-[#212028B3] to-[#1C1928B3]">
+                    <p class="block lg:hidden text-[#FFCE27] text-[24px] font-[300] text-center mb-[24px] lg:mb-0">Latest Journal</p>
+                    <img src="{{url('/icon/journal.png')}}" alt="">
+                    <div class="lg:pl-[51px] w-full flex-col">
+                        <div class="hidden lg:flex justify-between w-full items-center h-[33%] self-start">
+                            <p class="text-[#FFCE27] text-[24px] font-[300] self-start ">Latest Journal</p>
+                            <div class="px-[10px] py-[8px] flex bg-white items-center gap-[10px] rounded-[32px] self-start ">
+                                <p class="text-[14px]">More works</p>
+                                <img src="{{url('/icon/Chevron-Down.svg')}}" alt="" class="cursor-pointer">
+                            </div>
+                        </div>
+                        <div class="h-[33%] mt-[24px] lg:mt-0">
+                            <div class="flex gap-[16px] mb-[24px]">
+                                <div class="px-[10px] py-[8px] flex bg-[#FFCE27] items-center gap-[10px] rounded-[32px]">
+                                    <p class="text-[14px]">Economy</p>
+                                </div>
+                                <p class="text-white text-[14px] font-[300] self-center">5 Min Read</p>
+                            </div>
+                            <p class="text-white text-[30px] font-[300] self-center">Your passport to the web3 economy</p>
+                        </div>
+                        <div class="flex mt-[24px] lg:mt-0 gap-[22px] h-[33%] justify-center md:justify-start">
+                            <div class="w-[16px] h-[16px] bg-[#FFCE27] self-end"></div>
+                            <div class="w-[16px] h-[16px] bg-white self-end"></div>
+                            <div class="w-[16px] h-[16px] bg-white self-end"></div>
+                        </div>
                     </div>
-                </form>
+                </div>
+            </div>
+            <p class="text-[32px] text-[#FFCE27] font-[300] text-center mt-[50px] mb-[80px]">Others</p>
+            <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-3 gap-[20px]">
+                @foreach($blogs as $blog)
+                    <div class="col-span-3 md:col-span-2 lg:col-span-1 mb-[69px]">
+                        <img src="{{url('images/'.$blog)}}" alt="" class="w-full">
+                        <div class="flex justify-between items-center mt-[21px] mb-[31px]">
+                            <p class="text-[21px] text-[#FFCE27] font-[400] text-center">Name</p>
+                            <div>
+                                <p class="text-[13px] text-[#FFFFFF] font-[400] text-right">2021</p>
+                                <p class="text-[13px] text-[#FFFFFF] font-[400] text-right">Minutes</p>
+                            </div>
+                        </div>
+                        <p class="text-[17px] text-[#FFFFFF] font-[300] text-justify">
+                            Make it more corporate please put a record on and see who dances, yet disband the squad but rehydrate as needed out of scope, and groom the backlog, and this is not the hill i want to die on we need to get the vernacular right.
+                        </p>
+                    </div>
+                @endforeach
             </div>
         </div>
-        <div class="flex flex-col gap-8">
-            @foreach($blogs as $blog)
-            <x-BlogCard :data=$blog/>
-            @endforeach
-        </div>
-        <nav aria-label="Page navigation example" class="text-right mt-12">
-            <ul class="inline-flex -space-x-px text-sm">
-                <li class="{{$current_page > 1 ? '' : ' hidden' }}">
-                    <a href="/journal?page={{$current_page - 1}}" class="flex items-center justify-center px-3 h-8 ml-0
-                    leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 
-                    hover:text-gray-700  ">Previous</a>
-                </li>
-                @for($i = 1; $i <= $total_page; $i++)
-                    <li>
-                        <a href="/journal?page={{$i}}" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 
-                        {{ $i == $current_page ? 'bg-blue-50 hover:bg-blue-100 hover:text-blue-700' : 'hover:bg-gray-100 hover:text-gray-700 bg-white' }} border border-gray-300 
-                         ">{{$i}}</a>
-                    </li>
-                @endfor
-                <li class="{{$current_page == $total_page ? 'hidden' : ' ' }}">
-                <a href="/journal?page={{$current_page + 1}}" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg 
-                hover:bg-gray-100 hover:text-gray-700   
-                ">Next</a>
-                </li>
-            </ul>
-        </nav>
     </div>
 </section>
 @endsection('content')
 
 @section('script')
 <script>
-    const searchForm = document.getElementById("search-form")
-    const searchFromToggle = document.getElementById("search-form-toggle")
-
-    const onShowSearchForm = () => {
-        if (searchForm.classList.contains('hidden')) {
-            searchForm.classList.remove("hidden")
-            searchFromToggle.classList.add('hidden')
+    const openModal = (e) => {
+        const modalDiv = document.getElementById("modal")
+        const bgModalDiv = document.getElementById("modal-bg")
+        if (modalDiv.classList.contains("hidden")) {
+            modalDiv.classList.remove("hidden")
+            bgModalDiv.classList.remove("hidden")
         } else {
-            searchForm.classList.add("hidden")
-            searchFromToggle.classList.remove('hidden')
+            modalDiv.classList.add("hidden")
+            bgModalDiv.classList.add("hidden")
+        }
+    }
+
+    const bgAction = () => {
+        const modalDiv = document.getElementById("modal")
+        const bgModalDiv = document.getElementById("modal-bg")
+        console.log('thi')
+        if (!modalDiv.classList.contains("hidden")) {
+            modalDiv.classList.add("hidden")
+            bgModalDiv.classList.add("hidden")
         }
     }
 </script>

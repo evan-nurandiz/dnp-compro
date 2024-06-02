@@ -61,17 +61,9 @@ class PublicController extends Controller
     }
 
     public function Journal(Request $request) {
-        if ($request->has('keyword')) {
-            $blogs = $this->crudHandler->getPaginateDataWithSearch('blogs', 'blog_title',$request->get('keyword'), 6);
-        } else {
-            $blogs = $this->crudHandler->getPaginateData('blogs', 6);
-        }
-        $contact = $this->cmsHandler->getContentBySection('contact');
+        $blogs = array('blog-1.png', 'blog-2.png', 'blog-3.png', 'blog-4.png', 'blog-5.png', 'blog-6.png');
         return view('web.blog', [
-            'blogs' => $blogs,
-            'current_page' => $blogs->currentPage(),
-            'total_page' => $blogs->lastPage(),
-            'contact' => json_decode($contact['content']),
+            'blogs' => $blogs
         ]);
     }
 
@@ -91,6 +83,9 @@ class PublicController extends Controller
     }
     
     public function Teams() {
-        return view('web.teams');
+        $leads = array('people-1.png', 'people-2.png', 'people-3.png', 'people-4.png');
+        $strategist = array('people-5.png', 'people-6.png', 'people-7.png', 'people-8.png');
+        $designers = array('people-9.png', 'people-10.png', 'people-11.png', 'people-12.png');
+        return view('web.teams', ['leads' => $leads, 'strategist' => $strategist, 'designers' => $designers]);
     }
 }

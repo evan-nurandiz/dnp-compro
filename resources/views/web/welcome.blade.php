@@ -36,20 +36,20 @@
             </video>
         </div>
     </div>
-    <div class="mt-[32px] mb-[97px] relative">
+    <div class="mt-[32px] mb-[550px] lg:mb-[97px] relative">
         <img src="{{url('/icon/hand-with-card.svg')}}" alt="" class="w-full">
-        <div class="px-[48px] top-[70px] absolute">
+        <div class="px-[48px] top-[20px] md:top-[70px] lg:top-[70px] absolute">
             <p class="text-[#FFCE27] text-[32px] mb-[33px] text-center lg:text-left">The story</p>
-            <p class="text-[#FFFFFF] text-[14px] max-w-[495px]">
+            <p class="text-[#FFFFFF] text-[14px] lg:max-w-[495px]">
                 Devin & Partners believe to provide a one stop solution service and maximize the deliverables of every aspect required.
                 So then we created 7 Sub-Brands with 7 teams of expertise in every Sub-Brands to provide the best quality provided.
                 From the core to it’s deliveries, we are connecting the dots of ideas to give the audience a unique experiences towards every projects. </p>
         </div>
-        <div class="hidden lg:block absolute bottom-[20px] w-full">
+        <div class="lg:block absolute lg:bottom-[20px] w-full">
             <div class="lg:mx-[160px] mb-[60px]">
                 <p class="text-[#FFCE27] text-[32px] text-center">Sub-brands</p>
             </div>
-            <div class="grid grid-cols-7 items-center lg:mx-[160px]">
+            <div class="grid gap-[22px] grid-cols-2 md:grid-cols-4 lg:grid-cols-7 items-center lg:mx-[160px]">
                 <div class="mx-auto">
                     <img src="{{url('/icon/Group.svg')}}" alt="">
                 </div>
@@ -83,8 +83,8 @@
                     <img src="{{url('/icon/Chevron-Down.svg')}}" alt="" class="cursor-pointer">
                 </div>
             </div>
-            <div class="col-span-10 lg:col-span-8 gap-[31px] grid grid-cols-3">
-                <div class="col-span-10 lg:col-span-1">
+            <div class="col-span-10 md:col-span-10 lg:col-span-8 gap-[31px] grid grid-cols-3">
+                <div class="col-span-10 md:col-span-5 lg:col-span-1">
                     <img src="{{url('/icon/work-1.png')}}" alt="" class="w-full">
                     <div class="flex justify-between mt-[21px]">
                         <p class="text-[14px] text-[#FFCE27] font-[300]">Cocomas terrace</p>
@@ -94,7 +94,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-span-10 lg:col-span-1">
+                <div class="col-span-10 md:col-span-5 lg:col-span-1">
                     <img src="{{url('/icon/work-2.png')}}" alt="" class="w-full">
                     <div class="flex justify-between mt-[21px]">
                         <p class="text-[14px] text-[#FFCE27] font-[300]">Cocomas terrace</p>
@@ -104,7 +104,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-span-10 lg:col-span-1">
+                <div class="col-span-10 md:col-span-5 lg:col-span-1">
                     <img src="{{url('/icon/work-3.png')}}" alt="" class="w-full">
                     <div class="flex justify-between mt-[21px]">
                         <p class="text-[14px] text-[#FFCE27] font-[300]">Cocomas terrace</p>
@@ -116,7 +116,7 @@
                 </div>
             </div>
         </div>
-        <div class="px-[10px] py-[8px] bg-white items-center gap-[10px] rounded-[32px] flex mt-[18px] lg:hidden w-[42.5%] mx-auto lg:mt-0">
+        <div class="px-[10px] py-[8px] bg-white items-center gap-[10px] rounded-[32px] flex mt-[18px] w-[50%] lg:hidden md:w-[17%] lg:w-[42.5%] mx-auto lg:mt-0">
             <p class="text-[14px]">More works</p>
             <img src="{{url('/icon/Chevron-Down.svg')}}" alt="" class="cursor-pointer">
         </div>
@@ -144,7 +144,7 @@
                         </div>
                         <p class="text-white text-[30px] font-[300] self-center">Your passport to the web3 economy</p>
                     </div>
-                    <div class="flex mt-[24px] lg:mt-0 gap-[22px] h-[33%]">
+                    <div class="flex mt-[24px] lg:mt-0 gap-[22px] h-[33%] justify-center md:justify-start">
                         <div class="w-[16px] h-[16px] bg-[#FFCE27] self-end"></div>
                         <div class="w-[16px] h-[16px] bg-white self-end"></div>
                         <div class="w-[16px] h-[16px] bg-white self-end"></div>
@@ -191,7 +191,7 @@
             </div>
         </div>
     </div>
-    <div class="hidden lg:block lg:mt-[55px] pl-[158px] pr-[162px]">
+    <div class="hidden md:mt-[70px] lg:block lg:mt-[620px] xl:mt-[305px] 2xl:mt-[120px] pl-[158px] pr-[162px]">
         <div class="bg-[#72727240] rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 py-[32px]">
             <p class="text-[60px] text-white font-[300] text-center">Let’s talk</p>
             <div class="pl-[112px] pr-[108px]">

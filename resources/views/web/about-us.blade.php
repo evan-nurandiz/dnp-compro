@@ -10,7 +10,7 @@
         <img src="{{url('images/PA0gvM.png')}}" alt="" class="md:w-full">
         <img src="{{url('images/about-us-bg.svg')}}" alt="" class="-mt-[200px] md:-mt-[1104px] md:w-full">
         <div class="pl-[16px] pr-[16px] lg:pl-[48px] lg:pr-[60px]">
-            <div class="block md:flex justify-between items-start -mt-[420px] mt-[180px] mb-[64px] lg:-mt-[1550px] lg:mb-[110px]">
+            <div class="block md:flex justify-between items-start -mt-[420px] mt-[180px] mb-[64px] lg:-mt-[1250px] lg:mb-[110px]">
                 <p class="mb-[16px] md:mb-0 text-[32px] md:text-[40px] lg:text-[48px] text-[#FFCE27] font-[300] w-[10%%] md:w-[60%]">Setiket</p>
                 <p class="text-[12px] md:text-[16px] lg:text-[18px] text-[#A3A3A3] font-[300] w-[10%%] md:w-[40%]">
                     IMI is an organisation appointed by the government to regulate and offer recommendations in road safety and automotive sports
